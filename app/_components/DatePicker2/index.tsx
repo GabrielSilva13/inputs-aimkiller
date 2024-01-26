@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { CalendarIcon } from '../svg/shared'
 import { format } from 'date-fns'
 
 import { classNames } from '@/app/lib/utils'
@@ -20,7 +19,6 @@ const DatePicker2 = () => {
             !date ? 'text-gray-900' : '',
           )}
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
           {date ? format(date, 'dd/MM/yyyy') : <span>Escolha uma data</span>}
         </Button>
       </PopoverTrigger>

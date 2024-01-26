@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${roboto.variable} container flex h-96 flex-col items-center justify-center px-4 py-2 font-sans`}
+        className={`${roboto.variable} container flex h-screen flex-col items-center justify-center px-4 py-2 font-sans`}
       >
         {children}
       </body>

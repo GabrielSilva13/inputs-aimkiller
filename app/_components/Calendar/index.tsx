@@ -3,7 +3,7 @@ import { DayPicker } from 'react-day-picker'
 
 import { classNames as cn } from '@/app/lib/utils'
 import { buttonVariants } from '../Button'
-import { ptBR } from 'date-fns/locale/pt-BR'
+import pt from 'date-fns/locale/pt-BR'
 import { CaretLeft, CaretRight } from '../svg/shared'
 
 type Props = React.ComponentProps<typeof DayPicker>
@@ -16,7 +16,7 @@ function Calendar({
 }: Props) {
   return (
     <DayPicker
-      locale={ptBR}
+      locale={pt}
       showOutsideDays={showOutsideDays}
       className={cn('p-3', className ?? '')}
       classNames={{
@@ -48,7 +48,7 @@ function Calendar({
         day_range_start: 'day-range-start',
         day_range_end: 'day-range-end',
         day_selected:
-          'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
+          'bg-primary !bg-gray-200 text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
         day_today: 'bg-accent text-accent-foreground',
         day_outside:
           'day-outside text-gray-500 opacity-50  aria-selected:bg-accent/50 aria-selected:text-gray-500 aria-selected:opacity-30',
