@@ -4,6 +4,7 @@ import { DayPicker } from 'react-day-picker'
 import { classNames as cn } from '@/app/lib/utils'
 import { buttonVariants } from '../Button'
 import { ptBR } from 'date-fns/locale/pt-BR'
+import { CaretLeft, CaretRight } from '../svg/shared'
 
 type Props = React.ComponentProps<typeof DayPicker>
 
@@ -58,8 +59,8 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <span className="text-lg">&lt;</span>,
-        IconRight: ({ ...props }) => <span className="text-lg">&gt;</span>,
+        IconLeft: () => <CaretLeft className="min-w-4" />,
+        IconRight: () => <CaretRight className="min-w-4" />,
       }}
       {...props}
     />
