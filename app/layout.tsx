@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
+import LanguageSelector from './_components/LanguageSelector'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -20,9 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${roboto.variable} container flex h-screen flex-col items-center justify-center px-4 py-2 font-sans`}
-      >
+      <body className={`${roboto.variable} font-sans`}>
+        <LanguageSelector />
         {children}
       </body>
     </html>

@@ -14,15 +14,11 @@ import {
   startOfToday,
   startOfWeek,
 } from 'date-fns'
-import { pt } from 'date-fns/locale'
-import { DatePickerProps } from './DatePickerProps.types'
+import { DatePickerCalendarProps } from './DatePickerProps.types'
 import { classNames } from '@/app/lib/utils'
 import { CalendarIcon, CaretLeft, CaretRight } from '../svg/shared'
 
-export const DatePickerCalendar = ({
-  selectedDay,
-  onSelectedDate,
-}: DatePickerProps) => {
+export const DatePickerCalendar = (props: DatePickerCalendarProps) => {
   const today = startOfToday()
   //   const [selectedDay, setSelectedDay] = useState(today);
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -58,7 +54,9 @@ export const DatePickerCalendar = ({
       <div className="flex items-center">
         <h2 className="flex w-full items-center gap-2 text-sm font-semibold">
           <CalendarIcon className="h-5 w-5" />
-          {format(firstDayCurrentMonth, 'MMMM yyyy', { locale: pt })}
+          {format(firstDayCurrentMonth, 'MMMM yyyy', {
+            locale: props.locale,
+          })}
         </h2>
         <button
           type="button"
@@ -98,26 +96,30 @@ export const DatePickerCalendar = ({
           >
             <button
               type="button"
-              onClick={() => onSelectedDate(day)}
+              onClick={() => props.onSelectedDate(day)}
               className={classNames(
-                isEqual(day, selectedDay) ? 'text-white' : '',
-                !isEqual(day, selectedDay) && isToday(day)
+                isEqual(day, props.selectedDay) ? 'text-white' : '',
+                !isEqual(day, props.selectedDay) && isToday(day)
                   ? 'text-red-500'
                   : '',
-                !isEqual(day, selectedDay) &&
+                !isEqual(day, props.selectedDay) &&
                   !isToday(day) &&
                   isSameMonth(day, firstDayCurrentMonth)
                   ? 'text-gray-900'
                   : '',
-                !isEqual(day, selectedDay) &&
+                !isEqual(day, props.selectedDay) &&
                   !isToday(day) &&
                   !isSameMonth(day, firstDayCurrentMonth)
                   ? 'text-red-200'
                   : '',
-                isEqual(day, selectedDay) && isToday(day) ? 'bg-gray-900' : '',
-                isEqual(day, selectedDay) && !isToday(day) ? 'bg-gray-700' : '',
-                !isEqual(day, selectedDay) ? 'hover:bg-gray-900/50' : '',
-                isEqual(day, selectedDay) || isToday(day)
+                isEqual(day, props.selectedDay) && isToday(day)
+                  ? 'bg-gray-900'
+                  : '',
+                isEqual(day, props.selectedDay) && !isToday(day)
+                  ? 'bg-gray-700'
+                  : '',
+                !isEqual(day, props.selectedDay) ? 'hover:bg-gray-900/50' : '',
+                isEqual(day, props.selectedDay) || isToday(day)
                   ? 'font-semibold'
                   : '',
                 'mx-auto flex h-8 w-8 items-center justify-center rounded-[14px]',

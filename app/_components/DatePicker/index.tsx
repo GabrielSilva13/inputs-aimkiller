@@ -1,23 +1,44 @@
-import { Fragment } from 'react'
+'use client'
+
+import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { format } from 'date-fns'
-import { pt } from 'date-fns/locale'
+import { pt, enUS, es, enGB } from 'date-fns/locale'
 import { DatePickerProps } from './DatePickerProps.types'
 import { DatePickerCalendar } from './DatePickerCalendar'
 import { CaretDown } from '../svg/shared'
 
-export const DatePicker = ({
-  selectedDay,
-  onSelectedDate,
-  label,
-}: DatePickerProps) => {
+export const DatePicker = (props: DatePickerProps) => {
+  const [selectedDay, setSelectedDay] = useState<Date>(new Date())
+
+  const handleLocale = (locale: string) => {
+    switch (locale) {
+      case 'pt':
+        return pt
+      case 'enUS':
+        return enUS
+      case 'es':
+        return es
+      case 'enGB':
+        return enGB
+      default:
+        return pt
+    }
+  }
+
+  const locale = handleLocale(props.locale ?? 'pt')
+
   return (
     <div>
-      {label && <label className="mb-1 block text-base">{label}</label>}
+      {props.label && (
+        <label className="mb-1 block text-base">{props.label}</label>
+      )}
       <Menu as="div" className="relative w-full text-left">
         <div>
           <Menu.Button className="flex h-[31px] w-full items-center justify-between gap-3 rounded-lg border border-[#D1D5E1] p-2 text-sm focus:outline-none focus:ring">
-            {format(selectedDay, 'dd/MM/yyyy', { locale: pt })}
+            {format(selectedDay, 'dd/MM/yyyy', {
+              locale,
+            })}
             <CaretDown className="h-5 w-5" />
           </Menu.Button>
         </div>
@@ -34,8 +55,9 @@ export const DatePicker = ({
             <div className="flex flex-col gap-3 p-2">
               <Menu.Item>
                 <DatePickerCalendar
-                  onSelectedDate={onSelectedDate}
+                  onSelectedDate={setSelectedDay}
                   selectedDay={selectedDay}
+                  locale={locale}
                 />
               </Menu.Item>
             </div>

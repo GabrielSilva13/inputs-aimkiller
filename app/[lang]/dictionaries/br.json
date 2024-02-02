@@ -1,0 +1,8 @@
+{
+  "inputNumber": "Inputs de Números",
+  "numeric1Title": "Numeric 1 (Aceita números naturais e negativos)",
+  "numeric2Title": "Numeric 2 (Aceita inteiros e fracionários)",
+  "numeric3Title": "Numeric 3 (Aumenta valores com base no select)",
+  "inputDate": "Inputs de Data",
+  "dateTitle1": "Date 1 (Aceita data no formato dd/mm/yyyy)"
+}
