@@ -4,5 +4,17 @@
   "numeric2Title": "Numérico 2 (Acepta números enteros y fracciones)",
   "numeric3Title": "Numérico 3 (Aumenta los valores según la selección)",
   "inputDate" : "Entradas de fecha",
-  "dateTitle1": "Fecha 1 (Acepta fecha y hora)"
+  "dateTitle1": "Fecha 1 (Acepta fecha en formato dd/MM/aaaa y en formato MM/dd/aaaa según el idioma seleccionado)",
+  "Formula": "Fórmulas",
+  "Integers": "Enteros",
+  "Fractional": "Fraccionarios",
+  "WeekDays": [
+    "Dom",
+    "Lun",
+    "Mar",
+    "Mié",
+    "Jue",
+    "Vie",
+    "Sáb"
+  ]
 }

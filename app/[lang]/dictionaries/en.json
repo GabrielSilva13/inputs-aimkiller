@@ -4,5 +4,17 @@
   "numeric2Title": "Numeric 2 (Accepts integers and fractions)",
   "numeric3Title": "Numeric 3 (Increases values ​​based on select)",
   "inputDate" : "Date Inputs",
-  "dateTitle1": "Date 1 (Accepts dates)"
+  "dateTitle1": "Date 1 (Accepts date in dd/MM/yyyy format and in MM/dd/yyyy format depending on the selected language)",
+  "Formula": "Formulas",
+  "Integers": "Integers",
+  "Fractional": "Fractionals",
+  "WeekDays": [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ]
 }

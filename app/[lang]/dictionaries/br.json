@@ -4,5 +4,17 @@
   "numeric2Title": "Numeric 2 (Aceita inteiros e fracionários)",
   "numeric3Title": "Numeric 3 (Aumenta valores com base no select)",
   "inputDate": "Inputs de Data",
-  "dateTitle1": "Date 1 (Aceita data no formato dd/mm/yyyy)"
+  "dateTitle1": "Date 1 (Aceita data no formato dd/MM/yyyy e no formato de MM/dd/yyyy baseado na linguagem selecionada)",
+  "Formula": "Fórmulas",
+  "Integers": "Inteiros",
+  "Fractional": "Fracionários",
+  "WeekDays": [
+    "Dom",
+    "Seg",
+    "Ter",
+    "Qua",
+    "Qui",
+    "Sex",
+    "Sáb"
+  ]
 }

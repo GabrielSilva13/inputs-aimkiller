@@ -3,7 +3,7 @@
 import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { format } from 'date-fns'
-import { pt, enUS, es, enGB } from 'date-fns/locale'
+import { pt, enUS, es } from 'date-fns/locale'
 import { DatePickerProps } from './DatePickerProps.types'
 import { DatePickerCalendar } from './DatePickerCalendar'
 import { CaretDown } from '../svg/shared'
@@ -13,30 +13,44 @@ export const DatePicker = (props: DatePickerProps) => {
 
   const handleLocale = (locale: string) => {
     switch (locale) {
-      case 'pt':
+      case 'br':
         return pt
-      case 'enUS':
+      case 'en':
         return enUS
       case 'es':
         return es
-      case 'enGB':
-        return enGB
       default:
         return pt
     }
   }
 
+  const handleFormatPerLocale = (locale: string) => {
+    switch (locale) {
+      case 'br':
+        return 'dd/MM/yyyy'
+      case 'en':
+        return 'MM/dd/yyyy'
+      case 'es':
+        return 'dd/MM/yyyy'
+      default:
+        return 'dd/MM/yyyy'
+    }
+  }
+
   const locale = handleLocale(props.locale ?? 'pt')
+  const formatData = handleFormatPerLocale(props.locale ?? 'pt')
 
   return (
     <div>
       {props.label && (
-        <label className="mb-1 block text-base">{props.label}</label>
+        <label className="mb-1 block text-sm font-semibold">
+          {props.label}
+        </label>
       )}
       <Menu as="div" className="relative w-full text-left">
         <div>
           <Menu.Button className="flex h-[31px] w-full items-center justify-between gap-3 rounded-lg border border-[#D1D5E1] p-2 text-sm focus:outline-none focus:ring">
-            {format(selectedDay, 'dd/MM/yyyy', {
+            {format(selectedDay, formatData, {
               locale,
             })}
             <CaretDown className="h-5 w-5" />
@@ -58,6 +72,7 @@ export const DatePicker = (props: DatePickerProps) => {
                   onSelectedDate={setSelectedDay}
                   selectedDay={selectedDay}
                   locale={locale}
+                  weekDays={props.weekDays}
                 />
               </Menu.Item>
             </div>

@@ -17,7 +17,12 @@ const Page = async ({ params: { lang } }: Params) => {
 
         <div className="flex w-full flex-wrap items-baseline justify-center gap-5">
           <Numeric1 title={dict.numeric1Title} />
-          <Numeric2 title={dict.numeric2Title} />
+          <Numeric2
+            title={dict.numeric2Title}
+            formulaLabel={dict.Formula}
+            fractionalLabel={dict.Fractional}
+            integersLabel={dict.Integers}
+          />
           <Numeric3 title={dict.numeric3Title} />
         </div>
 
@@ -28,7 +33,11 @@ const Page = async ({ params: { lang } }: Params) => {
 
           <div className="flex w-full flex-wrap items-baseline justify-center gap-5">
             <div className="mt-5 flex w-full max-w-xs flex-col gap-1">
-              <DatePicker label={dict.dateTitle1} locale="enUS" />
+              <DatePicker
+                label={dict.dateTitle1}
+                locale={lang}
+                weekDays={dict.WeekDays}
+              />
             </div>
           </div>
         </div>

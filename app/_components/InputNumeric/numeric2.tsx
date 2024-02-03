@@ -16,7 +16,12 @@ import {
 
 import Input from '../Input'
 
-const Numeric2 = (props: { title: string }) => {
+const Numeric2 = (props: {
+  title: string
+  formulaLabel: string
+  integersLabel: string
+  fractionalLabel: string
+}) => {
   const [selectedFormula, setSelectedFormula] = useState('inteiros')
   const [counter, setCounter] = useState('')
   return (
@@ -42,9 +47,11 @@ const Numeric2 = (props: { title: string }) => {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Fórmulas</SelectLabel>
-              <SelectItem value="inteiros">Inteiros</SelectItem>
-              <SelectItem value="fracionários">Fracionários</SelectItem>
+              <SelectLabel>{props.formulaLabel}</SelectLabel>
+              <SelectItem value="inteiros">{props.integersLabel}</SelectItem>
+              <SelectItem value="fracionários">
+                {props.fractionalLabel}
+              </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

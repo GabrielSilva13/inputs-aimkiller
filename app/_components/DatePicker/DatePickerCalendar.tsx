@@ -77,13 +77,9 @@ export const DatePickerCalendar = (props: DatePickerCalendarProps) => {
       </div>
 
       <div className="mt-10 grid grid-cols-7 border-b pb-2 text-center text-xs leading-6">
-        <div>Dom</div>
-        <div>Seg</div>
-        <div>Ter</div>
-        <div>Qua</div>
-        <div>Qui</div>
-        <div>Sex</div>
-        <div>Sab</div>
+        {props.weekDays.map((day) => (
+          <span key={day}>{day}</span>
+        ))}
       </div>
       <div className="mt-2 grid grid-cols-7 text-xs">
         {days.map((day, dayIdx) => (
